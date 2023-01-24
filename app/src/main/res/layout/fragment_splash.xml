@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.splash.SplashFragment"
+    android:background="@color/main_dark_blue">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/gym_logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/splashText"
+            android:gravity="center"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/splash_text" />
+
+    </LinearLayout>
+
+</FrameLayout>

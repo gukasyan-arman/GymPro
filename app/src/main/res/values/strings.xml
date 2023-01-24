@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">GymProject</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="splash_text">Time to create yourself</string>
+    <string name="enter_your_base_weight">Your working weight</string>
+    <string name="enter_your_reps">Your reps</string>
+    <string name="enter_your_pr">Your working weight</string>
+    <string name="find_out_your_pr">Find out your PR</string>
+    <string name="find_out_your_reps">Find out your max reps</string>
+    <string name="enter_pr">Enter your working weight in the input below</string>
+    <string name="enter_reps">Enter your max reps in the input below</string>
+    <string name="calculate">calculate</string>
+    <string name="search_hint">Search the exercise...</string>
+    <string name="logo">logo</string>
+    <string name="search">search</string>
+</resources>
