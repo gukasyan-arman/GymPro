@@ -50,6 +50,7 @@ dependencies {
     //modules
     implementation project(":data")
     implementation project(":domain")
+    implementation project(":common")
 
     // Coroutines
     def coroutinesVersion = "1.6.4"

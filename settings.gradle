@@ -14,5 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "GymProject"
 include ':app'
-include ':domain'
 include ':data'
+include ':common'
+include ':domain'

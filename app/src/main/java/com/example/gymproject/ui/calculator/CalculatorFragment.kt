@@ -41,13 +41,13 @@ class CalculatorFragment : Fragment() {
             binding.reps.error = "The number of repetitions must be greater than 1"
         }
 
-        if (binding.workingWeight.text!!.trim().toString().isEmpty()) {
-            binding.workingWeight.error = "Please, input your working weight"
+        if (binding.searchText.text!!.trim().toString().isEmpty()) {
+            binding.searchText.error = "Please, input your working weight"
         }
 
-        if (binding.reps.text!!.trim().toString().isNotEmpty() && binding.workingWeight.text!!.trim().toString().isNotEmpty()) {
+        if (binding.reps.text!!.trim().toString().isNotEmpty() && binding.searchText.text!!.trim().toString().isNotEmpty()) {
             val r: Int = binding.reps.text.toString().toInt()
-            val w: Int = binding.workingWeight.text.toString().toInt()
+            val w: Int = binding.searchText.text.toString().toInt()
             val result = w / (1.0278 - (0.0278 * r))
             binding.yourPrTv.text = "Your PR is ${result.roundToInt()} kg"
         }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GymProject</string>
+    <string name="app_name">GymPro</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="splash_text">Time to create yourself</string>
     <string name="enter_your_base_weight">Your working weight</string>
@@ -13,4 +13,8 @@
     <string name="search_hint">Search the exercise...</string>
     <string name="logo">logo</string>
     <string name="search">search</string>
+    <string name="title_icon">title icon</string>
+    <string name="muscle_group_icon">muscle group icon</string>
+    <string name="target_icon">target icon</string>
+    <string name="equipment_icon">equipment icon</string>
 </resources>
