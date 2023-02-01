@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import com.example.gymproject.databinding.FragmentCalculatorBinding
 import kotlin.math.roundToInt
@@ -25,6 +28,11 @@ class CalculatorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.calculatePr.isEnabled = false
+        binding.calculatePr.alpha = 0.5F
+
+        setClickableButton()
 
         binding.calculatePr.setOnClickListener {
             validateFields()
@@ -52,4 +60,35 @@ class CalculatorFragment : Fragment() {
             binding.yourPrTv.text = "Your PR is ${result.roundToInt()} kg"
         }
     }
+
+    private fun setClickableButton() {
+        binding.searchText.addTextChangedListener {
+            if (it.toString().trim().isNotEmpty()) {
+                if (binding.reps.text.toString().trim().isNotEmpty()) {
+                    binding.calculatePr.isEnabled = true
+                    binding.calculatePr.alpha = 1F
+                }
+            } else {
+                if (binding.searchText.text.toString().trim().isEmpty() || binding.reps.text.toString().trim().isEmpty()) {
+                    binding.calculatePr.isEnabled = false
+                    binding.calculatePr.alpha = 0.5F
+                }
+            }
+        }
+        binding.reps.addTextChangedListener {
+            if (it.toString().trim().isNotEmpty()) {
+                if (binding.searchText.text.toString().trim().isNotEmpty()) {
+                    binding.calculatePr.isEnabled = true
+                    binding.calculatePr.alpha = 1F
+                }
+            } else {
+                if (binding.searchText.text.toString().trim().isEmpty() || binding.reps.text.toString().trim().isEmpty()) {
+                    binding.calculatePr.isEnabled = false
+                    binding.calculatePr.alpha = 0.5F
+                }
+            }
+        }
+
+    }
+
 }

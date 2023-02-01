@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.common.Resource
 import com.example.domain.models.Exercise
 import com.example.gymproject.R
 import com.example.gymproject.databinding.FragmentMainBinding
@@ -42,8 +43,12 @@ class MainFragment : Fragment(), MainAdapter.ExerciseItemClickListener {
             adapter.differ.submitList(list)
         }
 
-        mainViewModel.searchQuery.observe(viewLifecycleOwner) {
-            Log.d("searchQuery", "searchQuery = $it")
+        mainViewModel.loaderState.observe(viewLifecycleOwner) {
+            if (it == false) {
+                binding.progressBar.visibility = View.VISIBLE
+            } else {
+                binding.progressBar.visibility = View.GONE
+            }
         }
 
     }

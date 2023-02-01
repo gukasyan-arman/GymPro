@@ -19,6 +19,7 @@ class MainViewModel @Inject constructor(
 ): ViewModel() {
 
     val searchQuery = MutableLiveData<String>()
+    val loaderState = MutableLiveData<Boolean>()
     private val _exercises = MutableLiveData<List<Exercise>>()
     val exercises: LiveData<List<Exercise>>
         get() = _exercises
@@ -32,12 +33,15 @@ class MainViewModel @Inject constructor(
             when(it) {
                 is Resource.Loading -> {
                     Log.d("exercisesState", "Loading")
+                    loaderState.postValue(false)
                 }
                 is Resource.Success -> {
                     _exercises.value = it.data!!
+                    loaderState.postValue(true)
                 }
                 is Resource.Error -> {
                     Log.e("exercisesState", "Error getting all exercises")
+                    loaderState.postValue(false)
                 }
             }
         }.launchIn(viewModelScope)

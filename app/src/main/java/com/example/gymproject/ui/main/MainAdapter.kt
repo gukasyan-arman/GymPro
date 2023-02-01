@@ -1,6 +1,7 @@
 package com.example.gymproject.ui.main
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -31,14 +32,13 @@ class MainAdapter(
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val currentExercise = differ.currentList[position]
+        if (position == differ.currentList.size) {
+            holder.binding.bottomLine.visibility = View.GONE
+        }
         holder.binding.apply {
             exerciseItemName.text = currentExercise.name
-            exerciseItemEquipment.text = currentExercise.equipment
-            exerciseItemTarget.text = currentExercise.target
             exerciseItemBodyPart.text = currentExercise.bodyPart
         }
-
-
 
         holder.itemView.setOnClickListener {
             listener.onItemClicked(differ.currentList[holder.adapterPosition])
