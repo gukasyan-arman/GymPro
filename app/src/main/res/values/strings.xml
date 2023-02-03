@@ -17,4 +17,7 @@
     <string name="muscle_group_icon">muscle group icon</string>
     <string name="target_icon">target icon</string>
     <string name="equipment_icon">equipment icon</string>
+    <string name="video_example_exercise">Video example exercise</string>
+    <string name="video_preview">video preview</string>
+    <string name="exercise_gif">exercise gif</string>
 </resources>

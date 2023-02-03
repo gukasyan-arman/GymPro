@@ -41,7 +41,28 @@
         android:id="@+id/detailFragment"
         android:name="com.example.gymproject.ui.detail.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="name"
+            android:defaultValue="Exercise name"
+            app:argType="string" />
+        <argument
+            android:name="target"
+            app:argType="string"
+            android:defaultValue="Exercise target" />
+        <argument
+            android:name="bodyPart"
+            app:argType="string"
+            android:defaultValue="EXercise bodyPart" />
+        <argument
+            android:name="equipment"
+            app:argType="string"
+            android:defaultValue="Exercise equipment" />
+        <argument
+            android:name="gifUrl"
+            app:argType="string"
+            android:defaultValue="Exercise GifUrl" />
+    </fragment>
     <action
         android:id="@+id/action_global_mainFragment"
         app:destination="@id/mainFragment"

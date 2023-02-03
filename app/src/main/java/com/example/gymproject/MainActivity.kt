@@ -2,10 +2,9 @@ package com.example.gymproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.gymproject.databinding.ActivityMainBinding
-import com.example.gymproject.ui.calculator.CalculatorFragment
-import com.example.gymproject.ui.main.MainFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,22 +16,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.bottomNavigationView.setOnItemSelectedListener {
-            when(it.itemId) {
-                R.id.mainFragment -> replaceFragment(MainFragment())
-                R.id.calculatorFragment -> replaceFragment(CalculatorFragment())
-                else -> {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        setupWithNavController(binding.bottomNavigationView, navController)
 
-                }
-            }
-            true
-        }
     }
 
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.navHostFragment, fragment)
-        fragmentTransaction.commit()
-    }
 }
