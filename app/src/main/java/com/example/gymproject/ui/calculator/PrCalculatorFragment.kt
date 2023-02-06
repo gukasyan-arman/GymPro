@@ -1,28 +1,28 @@
 package com.example.gymproject.ui.calculator
 
-import android.R.attr.x
 import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doOnTextChanged
-import androidx.fragment.app.Fragment
-import com.example.gymproject.databinding.FragmentCalculatorBinding
+import com.example.gymproject.R
+import com.example.gymproject.databinding.FragmentPrCalculatorBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlin.math.roundToInt
 
+class PrCalculatorFragment : Fragment() {
 
-class CalculatorFragment : Fragment() {
-
-    private lateinit var binding: FragmentCalculatorBinding
+    private lateinit var binding: FragmentPrCalculatorBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCalculatorBinding.inflate(inflater, container, false)
+        binding = FragmentPrCalculatorBinding.inflate(inflater, container, false)
+        val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        navBar.visibility = View.GONE
         return binding.root
     }
 
@@ -90,5 +90,4 @@ class CalculatorFragment : Fragment() {
         }
 
     }
-
 }

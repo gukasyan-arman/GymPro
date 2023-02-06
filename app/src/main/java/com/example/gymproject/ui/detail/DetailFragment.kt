@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebSettings
 import androidx.fragment.app.Fragment
+import com.example.gymproject.R
 import com.example.gymproject.databinding.FragmentDetailBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -21,6 +23,10 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDetailBinding.inflate(inflater, container, false)
+
+        val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        navBar.visibility = View.GONE
+
         return binding.root
     }
 
@@ -50,13 +56,7 @@ class DetailFragment : Fragment() {
             settings.cacheMode = WebSettings.LOAD_NO_CACHE
         }
 
-
-
-
-
         gifUrl?.let { binding.webView.loadUrl(it) }
-
-
 
     }
 }

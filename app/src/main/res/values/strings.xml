@@ -20,4 +20,5 @@
     <string name="video_example_exercise">Video example exercise</string>
     <string name="video_preview">video preview</string>
     <string name="exercise_gif">exercise gif</string>
+    <string name="bmi_calculator">BMI calculator</string>
 </resources>
