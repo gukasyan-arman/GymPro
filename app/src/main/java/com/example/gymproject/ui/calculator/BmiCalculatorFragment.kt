@@ -14,6 +14,7 @@ import kotlin.math.roundToInt
 class BmiCalculatorFragment : Fragment() {
 
     private lateinit var binding: FragmentBmiCalculatorBinding
+    private lateinit var navBar: BottomNavigationView
     private var result = 0.0
 
     override fun onCreateView(
@@ -21,7 +22,7 @@ class BmiCalculatorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentBmiCalculatorBinding.inflate(inflater, container, false)
-        val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        navBar = requireActivity().findViewById(R.id.bottomNavigationView)
         navBar.visibility = View.GONE
         return binding.root
     }
@@ -97,5 +98,10 @@ class BmiCalculatorFragment : Fragment() {
         binding.diapozon.visibility = View.VISIBLE
         binding.description.visibility = View.VISIBLE
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        navBar.visibility = View.VISIBLE
     }
 }

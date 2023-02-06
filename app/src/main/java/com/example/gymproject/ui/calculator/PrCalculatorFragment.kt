@@ -15,13 +15,14 @@ import kotlin.math.roundToInt
 class PrCalculatorFragment : Fragment() {
 
     private lateinit var binding: FragmentPrCalculatorBinding
+    private lateinit var navBar: BottomNavigationView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPrCalculatorBinding.inflate(inflater, container, false)
-        val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        navBar = requireActivity().findViewById(R.id.bottomNavigationView)
         navBar.visibility = View.GONE
         return binding.root
     }
@@ -89,5 +90,10 @@ class PrCalculatorFragment : Fragment() {
             }
         }
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        navBar.visibility = View.VISIBLE
     }
 }
