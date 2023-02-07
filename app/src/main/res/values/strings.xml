@@ -10,7 +10,7 @@
     <string name="enter_pr">Enter your working weight in the input below</string>
     <string name="enter_reps">Enter your max reps in the input below</string>
     <string name="calculate">calculate</string>
-    <string name="search_hint">Search the exercise...</string>
+    <string name="search_hint">Search the exercise…</string>
     <string name="logo">logo</string>
     <string name="search">search</string>
     <string name="title_icon">title icon</string>
@@ -21,4 +21,23 @@
     <string name="video_preview">video preview</string>
     <string name="exercise_gif">exercise gif</string>
     <string name="bmi_calculator">BMI calculator</string>
+    <string name="calories_expenditure">Your daily calorie expenditure:</string>
+    <string name="age">age</string>
+    <string name="enter_your_age">Enter your age</string>
+    <string name="weight_kg">weight (kg)</string>
+    <string name="enter_your_weight_in_kilograms">Enter your weight in kilograms</string>
+    <string name="height_sm">Height (sm)</string>
+    <string name="enter_your_height_in_centimeters">Enter your height in centimeters</string>
+    <string name="sex">Sex</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="life_activity">Life activity</string>
+
+    <string-array name="life_activity_array">
+        <item>minimal (sedentary work, lack of physical activity)</item>
+        <item>low (training for at least 20 minutes 1–3 times a week)</item>
+        <item>moderate (training 30–60 minutes 3–4 times a week)</item>
+        <item>high (training 30–60 min 5–7 times a week; hard physical work)</item>
+        <item>extreme (several intense workouts a day 6–7 times a week; very laborious work)</item>
+    </string-array>
 </resources>

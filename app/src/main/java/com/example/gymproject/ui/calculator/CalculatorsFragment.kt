@@ -32,6 +32,10 @@ class CalculatorsFragment : Fragment() {
         binding.bmiCalculatorBtn .setOnClickListener {
             findNavController().navigate(R.id.action_calculatorFragment_to_bmiCalculatorFragment)
         }
+
+        binding.caloriesBmiCalculator.setOnClickListener {
+            findNavController().navigate(R.id.action_calculatorFragment_to_caloriesCalculatorFragment)
+        }
     }
 
 }
