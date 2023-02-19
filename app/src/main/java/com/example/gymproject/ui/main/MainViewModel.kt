@@ -22,6 +22,7 @@ class MainViewModel @Inject constructor(
 
     val searchQuery = MutableLiveData<String>()
     val loaderState = MutableLiveData<Boolean>()
+    val searchError = MutableLiveData<Boolean>()
     private val _exercises = MutableLiveData<List<Exercise>>()
     val exercises: LiveData<List<Exercise>>
         get() = _exercises
@@ -56,14 +57,17 @@ class MainViewModel @Inject constructor(
                 is Resource.Loading -> {
                     Log.d("exercisesState", "Loading")
                     loaderState.postValue(false)
+                    searchError.postValue(false)
                 }
                 is Resource.Success -> {
                     _exercises.value = it.data!!
                     loaderState.postValue(true)
+                    searchError.postValue(false)
                 }
                 is Resource.Error -> {
                     Log.e("exercisesState", "Error getting exercises by bodyPart")
-                    loaderState.postValue(false)
+                    loaderState.postValue(true)
+                    searchError.postValue(true)
                 }
             }
         }.launchIn(viewModelScope)

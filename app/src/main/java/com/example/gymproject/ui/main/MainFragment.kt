@@ -43,6 +43,16 @@ class MainFragment : Fragment(), MainAdapter.ExerciseItemClickListener {
             }
         }
 
+        mainViewModel.searchError.observe(viewLifecycleOwner) {
+            if (it == true) {
+                binding.exerciseRv.visibility = View.GONE
+                binding.noSearchResultTv.visibility = View.VISIBLE
+            } else {
+                binding.exerciseRv.visibility = View.VISIBLE
+                binding.noSearchResultTv.visibility = View.GONE
+            }
+        }
+
         mainViewModel.exercises.observe(viewLifecycleOwner) {list ->
             adapter.differ.submitList(list)
         }

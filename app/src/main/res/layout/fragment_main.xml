@@ -13,7 +13,7 @@
         android:layout_height="100dp"
         android:src="@drawable/gym_logo"
         app:tint="@color/sky_blue"
-        android:alpha="0.3"
+        android:alpha="0.25"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,5 +87,18 @@
         app:layout_constraintVertical_bias="1.0"
         tools:itemCount="8"
         tools:listitem="@layout/exercise_item" />
+
+    <TextView
+        android:id="@+id/noSearchResultTv"
+        android:text="@string/the_search_have_no_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
