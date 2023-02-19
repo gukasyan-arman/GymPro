@@ -32,6 +32,7 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="life_activity">Life activity</string>
+    <string name="the_search_have_no_result">The search have no result</string>
 
     <string-array name="life_activity_array">
         <item>minimal (sedentary work, lack of physical activity)</item>
