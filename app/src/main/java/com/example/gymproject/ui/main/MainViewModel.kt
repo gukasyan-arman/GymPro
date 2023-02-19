@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.common.Resource
 import com.example.domain.models.Exercise
 import com.example.domain.use_cases.AllExercisesUseCase
+import com.example.domain.use_cases.ExercisesByBodyPartUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -16,6 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val allExercisesUseCase: AllExercisesUseCase,
+    private val exercisesByBodyPartUseCase: ExercisesByBodyPartUseCase
 ): ViewModel() {
 
     val searchQuery = MutableLiveData<String>()
@@ -41,6 +43,26 @@ class MainViewModel @Inject constructor(
                 }
                 is Resource.Error -> {
                     Log.e("exercisesState", "Error getting all exercises")
+                    loaderState.postValue(false)
+                }
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    fun getExercisesByBodyPart() {
+        exercisesByBodyPartUseCase.bodyPart = searchQuery.value!!
+        exercisesByBodyPartUseCase().onEach {
+            when(it) {
+                is Resource.Loading -> {
+                    Log.d("exercisesState", "Loading")
+                    loaderState.postValue(false)
+                }
+                is Resource.Success -> {
+                    _exercises.value = it.data!!
+                    loaderState.postValue(true)
+                }
+                is Resource.Error -> {
+                    Log.e("exercisesState", "Error getting exercises by bodyPart")
                     loaderState.postValue(false)
                 }
             }

@@ -18,7 +18,6 @@ import javax.inject.Singleton
 @Module
 class DataModule {
 
-
     @Provides
     @Singleton
     fun provideExerciseRetrofit():Retrofit {
@@ -38,6 +37,8 @@ class DataModule {
     fun provideExercisesRepository(exercisesService: ExercisesService): ExercisesRepository {
         return ExercisesRepositoryImpl(exercisesService = exercisesService)
     }
+
+
 
     @Provides
     fun logging() = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

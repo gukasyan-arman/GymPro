@@ -11,11 +11,8 @@ interface ExercisesService {
     @GET("exercises/bodyPart/{bodyPart}?rapidapi-key=${Constant.MY_KEY}")
     suspend fun getExercisesByBodyPart(@Path("bodyPart") bodyPart: String): Response<List<ExerciseDTO>>
 
-    @GET("exercises/name/{target}?rapidapi-key=${Constant.MY_KEY}")
+    @GET("exercises/target/{target}?rapidapi-key=${Constant.MY_KEY}")
     suspend fun getExercisesByTarget(@Path("target") target: String): Response<List<ExerciseDTO>>
-
-    @GET("exercises/name/{equipment}?rapidapi-key=${Constant.MY_KEY}")
-    suspend fun getExercisesByEquipment(@Path("equipment") equipment: String): Response<List<ExerciseDTO>>
 
     @GET("exercises?rapidapi-key=${Constant.MY_KEY}")
     suspend fun getAllExercises(): Response<List<ExerciseDTO>>
